@@ -1,5 +1,5 @@
 # ggfind-app
-A VueJS web app that I developed  using CheapShark's API. It searches for PC games at different online stores and picks the cheapest deal available for that game.
+A [VueJS web app](https://ggfind.usaidbinshafqat.com) that I developed  using CheapShark's API. It searches for PC games at different online stores and picks the cheapest deal available for that game.
 
 
 **How to use**
