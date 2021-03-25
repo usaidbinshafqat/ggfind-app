@@ -1,0 +1,140 @@
+<html>
+<head>
+  <meta content='width=device-width, initial-scale=1' name='viewport'/>
+  <meta http-equiv='cache-control' content='no-cache'>
+  <meta http-equiv='expires' content='0'>
+  <meta http-equiv='pragma' content='no-cache'>
+
+  <title>gg find</title>
+  <link rel="shortcut icon" type="image/png" href="favicon"/>
+
+  <link rel="stylesheet" href="index.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/babel-polyfill/dist/polyfill.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.4.0/dist/vuetify.min.js"></script>
+  <script src="https://unpkg.com/@trevoreyre/autocomplete-vue"></script>
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.4.0/dist/vuetify.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+ https://firebase.google.com/docs/web/setup#available-libraries -->
+ <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+</head>
+
+<div id="app" style = "align-content: center;">
+
+  <br>
+
+  <img src="head_logo.png" class="center" 
+      ></img>
+
+  <br>
+
+
+  <autocomplete
+  :search="search"
+  placeholder="Search Games"
+  aria-label="Search Games"
+  :get-result-value="getResultValue"
+  align="center"
+  @submit="handleSubmit"
+  ></autocomplete>
+
+  <v-app class="myFont">
+    <div v-if="show">
+<!--       <v-slide-y-transition>
+ -->      <v-container bg grid-list-md text-xs-center>
+        <v-row justify="center" align="center">
+          <v-card
+          class="mx-auto my-12"
+          width="500"
+          color="white"
+          elevation="5"
+          >
+
+          <v-img
+          height="400"
+          :src="cover"
+          contain
+          >
+
+        </v-img>
+
+        <v-column
+        align="left"
+        class="mx-0">
+        <v-card-title id="gameTitle">{{cardTitle}}</v-card-title>
+      </v-column>
+
+      <v-card-text>
+        <v-row
+        align="center"
+        class="mx-0"
+        >
+
+      </v-row>
+
+      <v-column
+      align="left"
+      class="mx-0"
+      >
+      <div class="my-4 subtitle-1">
+        <v-btn color="#970747" class="white--text" rounded @click="openCheapestDeal">
+        Shop for {{dollarsign}}{{cheapestPrice}} {{middleword}} {{cheapestStoreName}}</v-btn> <v-tooltip bottom>
+          <template v-slot:activator="{ on, attrs }">
+            <v-icon
+            v-bind="attrs"
+            v-on="on"
+            >
+            mdi-information-outline
+          </v-icon>
+        </template>
+        <span>Cheapest deal data is obtained from CheapShark</span>
+      </v-tooltip>
+
+    </div>
+
+
+
+  </v-column>
+</v-card-text>
+
+<v-divider class="mx-4" v-if="other_deals.length > 0"></v-divider>
+
+<v-column
+align="left"
+class="mx-0">
+<v-card-text>
+  <v-chip-group
+  v-model="selection"
+  active-class="#white--text"
+  column
+  outlined
+  >
+  <v-chip color="#970747" text-color="#970747" v-for="deal in other_deals" :key="deal.dealID" @click="handleOtherDeals(deal)" outlined><v-icon left>mdi-storefront</v-icon>{{deal.storeName}} - ${{deal.price}}</v-chip>
+
+</v-chip-group>
+</v-card-text>
+</v-column>
+
+</v-card>
+</v-row>
+</v-container>
+<!-- </v-slide-y-transition>
+ --></div>
+</v-app>
+</div>
+
+
+<script src="index.js"></script>
+</body>
+
+</script>
+</html>
