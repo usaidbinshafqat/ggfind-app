@@ -9,23 +9,6 @@ const STORE_LIST_URL = 'https://www.cheapshark.com/api/1.0/stores'
 
 const DEAL_ID_LOOKUP = 'https://www.cheapshark.com/redirect?dealID='
 
-
-// Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-var firebaseConfig = {
-    apiKey: "AIzaSyAy2SnlHrPcpw7APnM79A6b5Gv5t7esTWk",
-    authDomain: "gg-finder.firebaseapp.com",
-    projectId: "gg-finder",
-    storageBucket: "gg-finder.appspot.com",
-    messagingSenderId: "313531446117",
-    appId: "1:313531446117:web:31245532f676f1c315a78c",
-    measurementId: "G-K10MGNQF9G"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-
-
 var app = new Vue({
   el: '#app',
   components: {
