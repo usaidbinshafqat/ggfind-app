@@ -14,7 +14,8 @@
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/babel-polyfill/dist/polyfill.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vuetify@2.4.0/dist/vuetify.min.js"></script>
-  <script src="https://unpkg.com/@trevoreyre/autocomplete-vue"></script>
+  <!-- Pin to Vue 2–compatible build to avoid Vue 3-only helpers (openBlock/useId) -->
+  <script src="https://unpkg.com/@trevoreyre/autocomplete-vue@2"></script>
   <link href="https://cdn.jsdelivr.net/npm/vuetify@2.4.0/dist/vuetify.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
@@ -25,9 +26,8 @@
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
  https://firebase.google.com/docs/web/setup#available-libraries -->
- <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
 </head>
-
+<body>
 <div id="app" style = "align-content: center;">
 
   <br>
@@ -135,6 +135,4 @@ class="mx-0">
 
 <script src="index.js"></script>
 </body>
-
-</script>
 </html>
